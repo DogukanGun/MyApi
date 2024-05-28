@@ -1,11 +1,13 @@
 import ollama
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 
 router = APIRouter(tags=["LLM"], prefix="/llm")
 
 
 @router.post("/email")
-async def respond_email(email: str):
+async def respond_email(
+        email: str
+):
     response = ollama.chat(model='llama3', messages=[
         {
             'role': 'user',
