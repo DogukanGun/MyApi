@@ -1,0 +1,2 @@
+class EmailMissingKeysException(Exception):
+    pass
