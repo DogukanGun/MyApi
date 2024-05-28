@@ -1,7 +1,7 @@
 import ollama
 from fastapi import APIRouter
 
-router = APIRouter(tags=["Admin"], prefix="/admin")
+router = APIRouter(tags=["LLM"], prefix="/llm")
 
 
 @router.post("/email")
