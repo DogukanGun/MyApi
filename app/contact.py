@@ -1,10 +1,7 @@
-from fastapi import APIRouter, Depends, HTTPException, Request
-
+from fastapi import APIRouter, Depends
 from app.data.contact_data import ContactForm
 from app.data.general import return_success_response
-from utils.constants.collection_name import CollectionName
 from utils.constants.environment_keys import EnvironmentKeys
-from utils.database.database import Database, get_db
 from utils.environment.environment_manager import EnvironmentManager, get_environment_manager
 from utils.notification.send_email import send_email
 

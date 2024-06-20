@@ -2,9 +2,7 @@ import sys
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app import llm, contact
-from multiprocessing import Process
-import uvicorn
+from app import llm, contact, starknet
 import subprocess
 
 app = FastAPI(
@@ -17,6 +15,7 @@ sub_app = FastAPI()
 
 routers = [
     llm.router,
+    starknet.router,
 ]
 internal_routers = [
     contact.router,
