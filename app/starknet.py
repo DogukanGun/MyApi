@@ -7,13 +7,12 @@ from utils.voyager.api_caller import call_api
 
 router = APIRouter(tags=["Starknet"], prefix="/starknet")
 
-
 @router.post("")
 def starknet_question(
         message: Message,
         env_manager: EnvironmentManager = Depends(get_environment_manager),
 ):
-    response = ollama.chat(model='llama3', messages=[
+    response = ollama.chat(model='llama2', messages=[
         {
             'role': 'system',
             'content': '''If user asks you questions about block and without providing blockhash in the question, 

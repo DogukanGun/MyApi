@@ -8,12 +8,11 @@ from app.data.llm_data import DonationMessage
 
 router = APIRouter(tags=["LLM"], prefix="/llm")
 
-
 @router.post("/email")
 async def respond_email(
         email: str
 ):
-    response = ollama.chat(model='llama3', messages=[
+    response = ollama.chat(model='llama2', messages=[
         {
             'role': 'user',
             'content': 'Hi now I will send you an email please'
@@ -37,5 +36,5 @@ async def chat_for_donation(
     messages_history: List[Message] = [
         Message(**system_message) if i == 0 else Message(**messages[i-1].__dict__) for i in
         range(len(messages) + 1)]
-    response = ollama.chat(model='llama3', messages=messages_history)
+    response = ollama.chat(model='llama2', messages=messages_history)
     return response['message']['content']
